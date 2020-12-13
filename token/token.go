@@ -1,36 +1,31 @@
 package token
 
-
-type TokenType string   // Allow us to use different values as TokenType
-
+type TokenType string // Allow us to use different values as TokenType
 
 type Token struct {
-    Type TokenType
-    Literal string 
+	Type    TokenType
+	Literal string
 }
 
 const (
-    // Special types
-    ILLEGAL="ILLEGAL"
-    EOF="EOF"
+	// Special types
+	ILLEGAL = "ILLEGAL"
+	EOF     = "EOF"
 
-    // Operators
-    ASSIGN="="
-    ADD="+"
-    
-    // Delimiters   
-    COMMA=","
-    SEMICOLON=";"
+	// Operators
+	ASSIGN = "="
+	ADD    = "+"
 
-    LPAREN="("
-    RPAREN="("
-    LBRACE="{"
-    RBRACE="}"
+	// Delimiters
+	COMMA     = ","
+	SEMICOLON = ";"
 
-    // Keywords
-    FUNCTION="FUNCTION"
-    LET="LET"
+	LPAREN = "("
+	RPAREN = "("
+	LBRACE = "{"
+	RBRACE = "}"
 
+	// Keywords
+	FUNCTION = "FUNCTION"
+	LET      = "LET"
 )
-
-

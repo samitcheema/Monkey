@@ -1,8 +1,9 @@
 package lexer
 
 import (
-	"go/token"
 	"testing"
+
+	"github.com/samitcheema/Monkey/token"
 )
 
 func TestNewToken(t *testing.T) {
@@ -29,10 +30,10 @@ func TestNewToken(t *testing.T) {
 		tok := l.NextToken()
 
 		if tok.Type != tt.expectedType {
-			t.Fatalf("tests[%d] - tokentype wrong. expected=%q, got=%q")
+			t.Fatalf("tests[%d] - tokentype wrong. expected=%q, got=%q", i, tt.expectedLiteral, tt.expectedType)
 		}
 		if tok.Literal != tt.expectedLiteral {
-			t.Fatalf("tests[%d] - literal wrong. expected=%q, got=%q")
+			t.Fatalf("tests[%d] - literal wrong. expected=%q, got=%q", i, tt.expectedLiteral, tt.expectedType)
 		}
 	}
 }

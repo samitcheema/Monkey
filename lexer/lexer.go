@@ -32,6 +32,8 @@ func (l *Lexer) readChar() {
 func (l *Lexer) NextToken() token.Token {
 	var tok token.Token //variable which will hold the token
 
+	l.eatWhiteSpace()
+
 	switch l.ch {
 	case '=':
 		tok = newToken(token.ASSIGN, l.ch)
@@ -65,6 +67,7 @@ func (l *Lexer) NextToken() token.Token {
 	return tok
 }
 
+// initialize tokens
 func newToken(tokenType token.TokenType, ch byte) token.Token {
 	return token.Token{Type: tokenType, Literal: string(ch)}
 }
@@ -83,4 +86,11 @@ func (l *Lexer) readIdentifier() string {
 	}
 
 	return l.Input[position:l.position]
+}
+
+// skip over whitespaces, tab, new line and return
+func (l *Lexer) eatWhiteSpace() {
+	for l.ch == ' ' || l.ch == '\t' || l.ch == '\n' || l.ch == '\r' {
+		l.readChar()
+	}
 }

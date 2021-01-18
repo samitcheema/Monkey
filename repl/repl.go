@@ -11,7 +11,7 @@ import (
 
 const PROMPT = ">> " // start of console prompt
 
-//
+// Read from input source and pass onto lexer instance
 func Start(in io.Reader, out io.Writer) {
 	scanner := bufio.NewScanner(in)
 

@@ -42,6 +42,8 @@ const (
 	BANG     = "!"
 	ASTERISK = "*"
 	SLASH    = "/"
+	EQ       = "=="
+	NOT_EQ   = "!="
 
 	// Delimiters
 	COMMA     = ","

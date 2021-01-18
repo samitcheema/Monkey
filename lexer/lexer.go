@@ -122,3 +122,11 @@ func (l *Lexer) eatWhiteSpace() {
 		l.readChar()
 	}
 }
+
+func (l *Lexer) peekChar() byte {
+	if l.readPosition >= len(l.Input) {
+		return 0
+	} else {
+		return l.Input[l.readPosition]
+	}
+}

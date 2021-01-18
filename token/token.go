@@ -31,8 +31,12 @@ const (
 	EOF     = "EOF"
 
 	// Operators
-	ASSIGN = "="
-	ADD    = "+"
+	ASSIGN   = "="
+	ADD      = "+"
+	SUBTRACT = "-"
+	BANG     = "!"
+	ASTERISK = "*"
+	SLASH    = "/"
 
 	// Delimiters
 	COMMA     = ","

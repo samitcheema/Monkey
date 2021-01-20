@@ -4,7 +4,7 @@ import "github.com/samitcheema/Monkey/token"
 
 // Lexer group
 type Lexer struct {
-	Input        string
+	input        string
 	position     int  // pointing to the current position within input being examined
 	readPosition int  // pointing to the next position after the current one(position)
 	ch           byte // the character which is being examined
@@ -12,17 +12,17 @@ type Lexer struct {
 
 // New function create and point to lexer
 func New(input string) *Lexer {
-	l := &Lexer{Input: input}
+	l := &Lexer{input: input}
 	l.readChar()
 	return l
 }
 
 // readChar reads character within input
 func (l *Lexer) readChar() {
-	if l.readPosition >= len(l.Input) {
+	if l.readPosition >= len(l.input) {
 		l.ch = 0
 	} else {
-		l.ch = l.Input[l.readPosition]
+		l.ch = l.input[l.readPosition]
 	}
 	l.position = l.readPosition
 	l.readPosition++
@@ -113,7 +113,7 @@ func (l *Lexer) readIdentifier() string {
 		l.readChar()
 	}
 
-	return l.Input[position:l.position]
+	return l.input[position:l.position]
 }
 
 // return true or false based on whether the identifier is a numerical
@@ -128,7 +128,7 @@ func (l *Lexer) readNumber() string {
 	for isDigit(l.ch) {
 		l.readChar()
 	}
-	return l.Input[position:l.position]
+	return l.input[position:l.position]
 
 }
 
@@ -140,9 +140,9 @@ func (l *Lexer) eatWhiteSpace() {
 }
 
 func (l *Lexer) peekChar() byte {
-	if l.readPosition >= len(l.Input) {
+	if l.readPosition >= len(l.input) {
 		return 0
 	} else {
-		return l.Input[l.readPosition]
+		return l.input[l.readPosition]
 	}
 }
